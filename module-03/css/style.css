@@ -1,5 +1,5 @@
 
-body{
+body {
 
   font-family:'Playfair Display', sans-serif;
   font-weight:400;
@@ -10,12 +10,15 @@ body{
 ul{
   padding-inline-start: 0px;
 }
+
+.container {
+  /* display: flex; */
+  width: 900px;
+  margin: 0 auto;
+}
 .menu {
-  box-sizing: border-box;
-  /* width: 900px; */
-  /* padding:10px 0px 10px 40px; */
-  margin: auto;
-  text-align: center;
+  display: flex;
+  justify-content: space-evenly;
 
 }
 
@@ -24,8 +27,7 @@ ul{
   display: inline-block;
   margin-top: 30px;
   margin-bottom: 30px;
-  margin-right: 90px;
-
+  /* margin-right: 90px; */
   text-decoration: none;
 }
 
@@ -45,22 +47,23 @@ ul{
 
 
 .box {
-  width: 960px;
-  display: block;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 900px;
+  /* display: block; */
   box-sizing: border-box;
-  margin: auto;
-  text-align: center;
+  /* align-content: space-between; */
+  /* margin: auto; */
+  /* text-align: center; */
 }
 
 .wrapper {
-
-  display: inline-block;
+  width: 420px;
   font-size: 16px;
-  /* vertical-align: top; */
-  /* width: 4s30px; */
-  margin: 0px 30px 100px 30px;
-  /* margin-bottom: 100px; */
-  text-align: start;
+  margin-bottom: 100px;
+
 }
 .wrapper-title {
   font-size: 28px;
@@ -82,8 +85,8 @@ ul{
 }
 
 .wrapper-img {
-  width: 400px;
-  height: 270px;
+  width: 420px;
+  height: 280px;
 }
 
 .button {
@@ -91,4 +94,6 @@ ul{
   border: 1px solid #626262;
   padding: 10px;
   margin-bottom: 100px;
+  margin-right:  auto;
+  margin-left: auto;
 }
