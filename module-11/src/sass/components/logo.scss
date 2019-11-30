@@ -1,0 +1,9 @@
+.logo {
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 30px;
+    color: $header-text-color;
+    @media (max-width: 764px) {
+        margin-bottom: 16px;
+    }
+}

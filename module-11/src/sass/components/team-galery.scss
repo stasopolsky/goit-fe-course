@@ -1,0 +1,99 @@
+.team-galery {
+    display: flex;
+    justify-content: space-between;
+    @media (max-width: 1212px) {
+        flex-direction: column;
+        align-items: center;
+    }
+    &__card{
+        width: 380px;
+        cursor: pointer;
+        position: relative;
+        @media (max-width: 380px) {
+            width: 320px;
+        }
+        &-name {
+            font-family: $title-font;
+            font-weight: 500;
+            font-size: 14px;
+            color: $title-text-color;
+            text-align: center;
+            margin: 0 0 10px;
+            text-transform: uppercase;
+        }
+        &-occupation {
+            font-size: 15px;
+            color: $text-color;
+            text-align: center;
+            font-family: $text-font;
+            font-weight: 400;
+            font-style: italic;
+            margin: 0;
+            @media (max-width: 1212px) {
+                padding-bottom: 20px;
+            }
+        }
+    }
+
+}
+.back {
+    width: 380px;
+    height: 470px;
+    background-color: $primary-color;
+    margin-bottom: 30px;
+    @media (max-width: 380px) {
+        width: 320px;
+        height: 380px;
+    }
+}
+.team-galery__card-photo{
+    position: absolute;
+    top: 0;
+    left: 0;
+    @media (max-width: 380px) {
+        width: 320px;
+        height: 380px;
+    }
+    &::after {
+        content:'';
+        position:absolute;
+        left:0; top:0;
+        width: 380px;
+        height: 470px;
+        background: $gradient;
+        opacity: 0;
+        @media (max-width: 380px) {
+            width: 320px;
+            height: 380px;
+        }
+    }
+    &:hover .socials {
+        opacity: 1;
+                transition-duration: 0.2s;
+                transition-timing-function: linear;
+    }
+    &:hover {
+                transition-duration: 0.2s;
+                transition-timing-function: linear;
+                transform: translate( -10px, -10px);
+                @media (max-width: 764px) {
+                    transition-duration: 0.2s;
+                    transition-timing-function: linear;
+                    transform: translate( 0px, 0px);
+                }
+    &::after{
+        opacity: 1;
+                transition-duration: 0.2s;
+                transition-timing-function: linear;
+
+    }
+}
+}
+@media (max-width: 380px) {
+
+    .team-galery__card-photo, .team-galery__card-img {
+       width: 320px;
+       height: 380px;
+     }
+
+}
