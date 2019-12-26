@@ -146,3 +146,4 @@ account.withdraw(4);
 console.table(account.transactions);
 
 console.log(account.getTransactionDetails(1));
+console.table(account.getTransactionTotal(Transaction.DEPOSIT));
