@@ -1,7 +1,7 @@
 'use strict';
 import { default as galleryItems } from '../js/gallery-items.js';
 
-console.log(galleryItems);
+// console.log(galleryItems);
 // Обьект путей
 const refs = {
   gallery: document.querySelector('.gallery'),
@@ -30,6 +30,33 @@ function collectGalleryItem(items) {
     return acc;
   }, '');
 }
+
+// Yавигация влево-вправо по картинкам
+
+function navigatImg(event) {
+  const images = [...document.querySelectorAll('.gallery__image')];
+  console.log("images:",  images);
+
+  const imagesSrc = images.map(el => el.dataset.source);
+  console.log("imagesSrc:",  imagesSrc[imagesSrc.length-1]);
+
+  const iD = imagesSrc.indexOf(refs.lightbox__image.src);
+  console.log("iD:",  iD);
+
+  if (event.key === 'ArrowLeft') {
+    if(iD === 0) {
+      return refs.lightbox__image.src = `${imagesSrc[imagesSrc.length-1]}`;
+    }
+    refs.lightbox__image.src = `${imagesSrc[iD - 1]}`;
+  }
+  if (event.key === 'ArrowRight') {
+    if(iD === imagesSrc.length-1) {
+      return refs.lightbox__image.src = `${imagesSrc[0]}`;
+    }
+      refs.lightbox__image.src = `${imagesSrc[iD + 1]}`;
+  }
+};
+
 //Функция для добавления в HTML элементы галереи
 function addGallery(domElement, htmlString) {
   domElement.insertAdjacentHTML('beforeend', `${htmlString}`);
@@ -47,10 +74,13 @@ function cancellLightbox() {
   refs.lightbox__image.alt = '';
 }
 
-// Открываем модальное окно
 
+
+// Открываем модальное окно
 refs.gallery.addEventListener('click', e => {
   e.preventDefault();
+  console.log(e.target);
+  console.log(e.currentTarget);
   if (e.target === e.currentTarget) {
     return;
   }
@@ -58,18 +88,18 @@ refs.gallery.addEventListener('click', e => {
   refs.lightbox__image.src = e.target.dataset.source;
   refs.lightbox__image.alt = e.target.alt;
   refs.lightbox.classList.add('is-open');
+  window.addEventListener('keydown', navigatImg);
 });
 
 // Закрываем модальное окно
-
 refs.lightbox.addEventListener('click', e => {
   if (e.target.nodeName !== 'IMG') {
     cancellLightbox();
   }
+  window.addEventListener('keydown', navigatImg);
 });
 document.addEventListener('keydown', event => {
-  if (event.which !== 27) {
-    return;
+  if (event.key === 'Escape') {
+    cancellLightbox();
   }
-  cancellLightbox();
 });
