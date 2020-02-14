@@ -1,7 +1,7 @@
 'use strict';
 import { default as galleryItems } from '../js/gallery-items.js';
 
-// console.log(galleryItems);
+
 // Обьект путей
 const refs = {
   gallery: document.querySelector('.gallery'),
@@ -30,6 +30,8 @@ function collectGalleryItem(items) {
     return acc;
   }, '');
 }
+
+
 
 // Yавигация влево-вправо по картинкам
 
@@ -79,16 +81,17 @@ function cancellLightbox() {
 // Открываем модальное окно
 refs.gallery.addEventListener('click', e => {
   e.preventDefault();
-  console.log(e.target);
-  console.log(e.currentTarget);
+  // console.log(e.target);
+  // console.log(e.currentTarget);
   if (e.target === e.currentTarget) {
     return;
   }
-
   refs.lightbox__image.src = e.target.dataset.source;
   refs.lightbox__image.alt = e.target.alt;
   refs.lightbox.classList.add('is-open');
+
   window.addEventListener('keydown', navigatImg);
+
 });
 
 // Закрываем модальное окно
