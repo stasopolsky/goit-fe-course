@@ -1,0 +1,26 @@
+.timer {
+  width: 700px;
+  background: rgba(14, 12, 12);
+  margin: 0 auto;
+  padding: 2vh;
+  border-radius: 2vh;
+  display: flex;
+  justify-content: center;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  padding: 2vh;
+  text-align: center;
+}
+.value {
+  min-width: 15vh;
+  color: rgb(184, 230, 20);
+  font-size: 15vh;
+}
+.label {
+  min-width: 5vh;
+  color: rgb(121, 67, 67);
+  font-size: 5vh;
+}
